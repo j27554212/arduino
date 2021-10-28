@@ -38,7 +38,7 @@ void _E5_82_B3_E9_80_81_E9_85_92_E6_B8_AC_E5_80_BC() {
 // setup() 會先被執行且只會執行一次  
 void setup() {  
   pinMode(A0, INPUT);  
-  Serial.begin(9600); //多加  
+  Serial.begin(9600); //達成同步  
   _E8_A8_88_E6_99_82 = millis();  
   while (!WiFi.softAP(u8"alcohol", u8"", 1,false));  
   _esp8266WebServer.on("/measure", _E5_82_B3_E9_80_81_E9_85_92_E6_B8_AC_E5_80_BC);  
@@ -52,7 +52,8 @@ void setup() {
 void loop() {  
   _esp8266WebServer.handleClient();  
   if (millis() - _E8_A8_88_E6_99_82 > 100) {  
-    _E9_85_92_E6_B8_AC_E5_80_BC = analogRead(A0);      Serial.println(_E9_85_92_E6_B8_AC_E5_80_BC);  //多加  
+    _E9_85_92_E6_B8_AC_E5_80_BC = analogRead(A0);       
+    Serial.println(_E9_85_92_E6_B8_AC_E5_80_BC);  //將酒測值顯示到視窗   
   
     _E8_A8_88_E6_99_82 = millis();    
   }  
