@@ -1,0 +1,24 @@
+// Flag's Block 產生的草稿碼
+
+#include <NNforduino.h>
+
+int _E5_8E_9F_E5_A7_8B_E5_80_BC;
+double _E6_BF_BE_E6_B3_A2ECG;
+NNforduino _E7_A5_9E_E7_B6_933;
+
+// setup() 會先被執行且只會執行一次
+void setup() {
+  Serial.begin(9600);
+  pinMode(A0, INPUT);
+
+  _E7_A5_9E_E7_B6_933.RNN(0.6);
+
+}
+
+// loop() 裡面的程式會不斷重複執行
+void loop() {
+  _E5_8E_9F_E5_A7_8B_E5_80_BC = analogRead(A0);
+  _E6_BF_BE_E6_B3_A2ECG = _E7_A5_9E_E7_B6_933.OutRNN(_E5_8E_9F_E5_A7_8B_E5_80_BC);
+  Serial.println((String(_E5_8E_9F_E5_A7_8B_E5_80_BC + 500) + String(u8",") + String(_E6_BF_BE_E6_B3_A2ECG)));
+
+}
